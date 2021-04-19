@@ -25,7 +25,7 @@ source('./evMethods.R')
 x = training[]
 y = training$Y
 
-fit <- train(x[,-24],y, method = "naive_bayes",BtrControl = trainControl(method = "cv", number = 10))
+fit <- train(x[,-21],y, method = "naive_bayes",BtrControl = trainControl(method = "cv", number = 10))
 default_pred_prob <- predict(fit, newdata = testing, type = "prob")
 default_pred_label <-  predict(fit, newdata = testing, type = "raw")
 nb_iso_recal = iso_recal_func(fit, validate, default_pred_prob[,2], testing)
